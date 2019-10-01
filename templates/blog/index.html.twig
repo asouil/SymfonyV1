@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hi there !{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+    {% for article in articles %}
+        <h1> {{ article.titre }}</h1>
+        <small> Ecrit le {{ article.createdat|date('d/m/Y') }} à {{ article.createdat|date('H:i')}}</small>
+        <div>
+            <img src="{{ article.image }}" alt="article.image">
+        </div>
+        {{ article.content|raw }}
+                <a href="{{ path('blogshow',{id:article.id}) }}">en savoir plus...</a>
+
+    {% endfor %}
+</div>
+{% endblock %}
